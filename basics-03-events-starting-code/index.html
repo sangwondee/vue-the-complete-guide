@@ -22,11 +22,18 @@
       <!-- v-on คือทำงานเกี่ยวกับ Event Lisinger -->
       <!-- เราสามารถส่งผ่าน parameter ได้โดยวิธีนี้ -->
       <button v-on:click="add(10)">Add 10</button>
-      <button v-on:click="reduce(5)">Subtract 5</button>
-      <!-- เราสามารถใส่ event เหมือนกับ js ธรรมดาได้เลย -->
-      <input type="text" v-on:input="setName($event, 'sanwondee')">
+      <!-- ปุ่มก็สามารถทำ Events Modifiers เช่นแบบนี้ .right คือบังคับให้ปุ่มต้อง คลิกขวาจัวเลขถึงจะลด-->
+      <button v-on:click.right="reduce(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
-      <p>You name: {{ name }}</p>
+
+      <!-- เราสามารถใส่ event เหมือนกับ js ธรรมดาได้เลย -->
+      <input type="text" v-on:input="setName($event, 'sanwondee')" v-on:keyup.enter="confirmInput">
+      <p>You name: {{ confirmName }}</p>
+      <!-- Event Modifi  .prevent คือ  event.preventDefault เหมือน js ปกติ -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button>Sign up</button>
+      </form>
     </section>
   </body>
 </html>
