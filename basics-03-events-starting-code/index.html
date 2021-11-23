@@ -23,7 +23,10 @@
       <!-- เราสามารถส่งผ่าน parameter ได้โดยวิธีนี้ -->
       <button v-on:click="add(10)">Add 10</button>
       <button v-on:click="reduce(5)">Subtract 5</button>
+      <!-- เราสามารถใส่ event เหมือนกับ js ธรรมดาได้เลย -->
+      <input type="text" v-on:input="setName($event, 'sanwondee')">
       <p>Result: {{ counter }}</p>
+      <p>You name: {{ name }}</p>
     </section>
   </body>
 </html>
